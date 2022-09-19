@@ -8,16 +8,12 @@ const postSchema = new mongoose_1.Schema({
         minlength: 1,
         maxlength: 280,
     },
-    image: [
-        {
-            type: String,
-        }
-    ],
-    video: [
-        {
-            type: String,
-        }
-    ],
+    image: {
+        type: String,
+    },
+    video: {
+        type: String,
+    },
     userId: {
         type: mongoose_1.Schema.Types.ObjectId,
         ref: 'User'

@@ -20,7 +20,14 @@ const userSchema = new mongoose_1.Schema({
     },
     name: String,
     dob: String,
-    avatar: String,
+    avatar: {
+        type: String,
+        default: 'https://res.cloudinary.com/dnboldv5r/image/upload/v1632958381/probook/avatar_ism2fu.png'
+    },
+    background: {
+        type: String,
+        default: 'https://res.cloudinary.com/dnboldv5r/image/upload/v1632958083/probook/i_Ocean-Quote-Twitter-_20Header_full_ap6zgw.jpg'
+    }
 });
 const User = (0, mongoose_1.model)('User', userSchema);
 exports.User = User;

@@ -56,11 +56,20 @@ class AuthController {
                 }
               }
             } else {
-              res.status(200).json("email was exitsted");
+              res.status(200).json(
+                {
+                  error: "Email already exists",
+                  position: "email"
+                });
             }
           }
         } else {
-          res.status(200).json("username was exitsted");
+          res.status(200).json(
+            {
+              error: "Username already exists",
+              position: "username"
+          });
+
         }
       }
     } catch (err) {

@@ -6,16 +6,16 @@ const postSchema = new Schema({
         minlength: 1,
         maxlength: 280,
     },
-    image: [
+    image: 
         {
             type: String,
         }
-    ],
-    video: [
+    ,
+    video: 
         {
             type: String,
         }
-    ],
+    ,
     userId: {
         type: Schema.Types.ObjectId,
         ref: 'User'

@@ -79,8 +79,8 @@ class postController {
         this.getPost = (req, res) => __awaiter(this, void 0, void 0, function* () {
             try {
                 let id = req.params.id;
-                const post = yield post_1.default.find({ userId: id });
-                res.status(200).json(post);
+                const posts = yield post_1.default.find({ userId: id }).populate('userId');
+                res.status(200).json(posts);
             }
             catch (error) {
                 res.status(500).json(error);

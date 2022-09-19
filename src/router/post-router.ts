@@ -27,7 +27,6 @@ routerPost.delete("/:id",auth, postController.deleteAPost);
 //GET POST
 routerPost.get("/:id", postController.getPost);
 
-routerPost.get('/:id',postController.getPost);
 
 
 export default routerPost;

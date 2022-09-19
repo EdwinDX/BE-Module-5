@@ -19,5 +19,4 @@ routerPost.put("/:id", auth_1.auth, post_api_1.default.updatePost);
 routerPost.delete("/:id", auth_1.auth, post_api_1.default.deleteAPost);
 //GET POST
 routerPost.get("/:id", post_api_1.default.getPost);
-routerPost.get('/:id', post_api_1.default.getPost);
 exports.default = routerPost;

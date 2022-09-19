@@ -17,7 +17,14 @@ const userSchema = new Schema({
         },
         name:String,
         dob:String,
-        avatar:String,
+        avatar: {
+            type: String,
+            default: 'https://res.cloudinary.com/dnboldv5r/image/upload/v1632958381/probook/avatar_ism2fu.png'
+        },
+        background: {
+            type: String,
+            default: 'https://res.cloudinary.com/dnboldv5r/image/upload/v1632958083/probook/i_Ocean-Quote-Twitter-_20Header_full_ap6zgw.jpg'
+        }
     }
 )
 
