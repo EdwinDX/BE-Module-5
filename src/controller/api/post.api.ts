@@ -30,12 +30,21 @@ class postController {
       res.status(500).json(error);
     }
   };
+  getAllPost = async (req: any, res: Response) => {
+
+    try {
+      const post = await Post.find().sort({ createdAt: -1 }).populate('userId');;
+      res.status(200).json(post);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  };
 
   //GET A POST
   getAPost = async (req: any, res: Response) => {
     try {
       let id = req.params.id;
-      const post = await Post.findById(id).populate("user");
+      const post = await Post.findById(id).populate('userId');
       res.status(200).json(post);
     } catch (error) {
       res.status(500).json(error);
@@ -65,7 +74,7 @@ class postController {
   getPost = async (req: Request, res: Response) => {
     try {
       let id = req.params.id;
-      const posts = await Post.find({ userId: id }).populate('userId');
+      const posts = await Post.find({ userId: id }).sort({ createdAt: -1 }).populate('userId');
       res.status(200).json(posts);
     } catch (error) {
       res.status(500).json(error);

@@ -10,6 +10,7 @@ const postSchema = new mongoose_1.Schema({
     },
     image: {
         type: String,
+        default: 'https://res.cloudinary.com/dnboldv5r/image/upload/v1632958083/probook/i_Ocean-Quote-Twitter-_20Header_full_ap6zgw.jpg'
     },
     video: {
         type: String,
@@ -18,9 +19,9 @@ const postSchema = new mongoose_1.Schema({
         type: mongoose_1.Schema.Types.ObjectId,
         ref: 'User'
     },
-    status: {
-        type: String,
-    },
+    // status:{
+    //     type: String,
+    // },
 }, { timestamps: true });
 const Post = (0, mongoose_1.model)('Post', postSchema);
 exports.default = Post;

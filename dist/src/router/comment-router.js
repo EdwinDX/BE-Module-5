@@ -11,6 +11,8 @@ exports.routerCommnet = (0, express_1.Router)();
 //  ADD COMMENT
 exports.routerCommnet.use(auth_1.auth);
 exports.routerCommnet.post('', comment_api_1.default.addComment);
+exports.routerCommnet.get('/:id', comment_api_1.default.getCommentByPostId);
+exports.routerCommnet.get('', comment_api_1.default.getComment);
 //UPDATE COMMENT
 exports.routerCommnet.put('/:id', comment_api_1.default.updateComment);
 //DELETE COMMENT

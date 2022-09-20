@@ -7,7 +7,8 @@ export const routerCommnet = Router();
 //  ADD COMMENT
 routerCommnet.use(auth)
 routerCommnet.post('',commentController.addComment);
-
+routerCommnet.get('/:id',commentController.getCommentByPostId)
+routerCommnet.get('',commentController.getComment)
 //UPDATE COMMENT
 routerCommnet.put('/:id',commentController.updateComment );
 

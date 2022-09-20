@@ -1,6 +1,29 @@
 import { Request, Response } from 'express';
 import Comment from '../../model/comment';
 class commentController {
+    getCommentByPostId = async (req: any, res: Response) => {
+        try {
+            let id = req.params.id;
+            
+            const comments = await Comment.find({postId:id}).populate('userId')
+            res.status(200).json(comments);
+        } catch (error) {
+            res.status(500).json(error);
+        }
+        
+    }
+    getComment = async (req: any, res: Response) => {
+        try {
+            // let id = req.params.id;
+            const comments = await Comment.find()
+            res.status(200).json(comments);
+        } catch (error) {
+            res.status(500).json(error);
+        }
+        
+    }
+
+
     addComment = async (req: any, res: Response) => {
         try {
             let newComment = req.body;

@@ -11,9 +11,9 @@ const routerPost = require('express').Router();
 // routerPost.use("/likes", routerLike);
 routerPost.get("/getpost",auth, postController.getPostByUserId);
 
+routerPost.get("/postDetail/:id", auth, postController.getAPost)
 
-
-
+routerPost.get("", auth, postController.getAllPost);
 
 //ADD POST
 routerPost.post("",auth, postController.newPost);
@@ -25,7 +25,7 @@ routerPost.put("/:id",auth, postController.updatePost);
 routerPost.delete("/:id",auth, postController.deleteAPost);
 
 //GET POST
-routerPost.get("/:id", postController.getPost);
+routerPost.get("/:id", auth, postController.getPost);
 
 
 

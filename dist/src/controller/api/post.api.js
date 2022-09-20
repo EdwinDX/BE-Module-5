@@ -43,11 +43,21 @@ class postController {
                 res.status(500).json(error);
             }
         });
+        this.getAllPost = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            try {
+                const post = yield post_1.default.find().sort({ createdAt: -1 }).populate('userId');
+                ;
+                res.status(200).json(post);
+            }
+            catch (error) {
+                res.status(500).json(error);
+            }
+        });
         //GET A POST
         this.getAPost = (req, res) => __awaiter(this, void 0, void 0, function* () {
             try {
                 let id = req.params.id;
-                const post = yield post_1.default.findById(id).populate("user");
+                const post = yield post_1.default.findById(id).populate('userId');
                 res.status(200).json(post);
             }
             catch (error) {
@@ -79,7 +89,7 @@ class postController {
         this.getPost = (req, res) => __awaiter(this, void 0, void 0, function* () {
             try {
                 let id = req.params.id;
-                const posts = yield post_1.default.find({ userId: id }).populate('userId');
+                const posts = yield post_1.default.find({ userId: id }).sort({ createdAt: -1 }).populate('userId');
                 res.status(200).json(posts);
             }
             catch (error) {

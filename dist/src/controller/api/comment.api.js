@@ -15,6 +15,26 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const comment_1 = __importDefault(require("../../model/comment"));
 class commentController {
     constructor() {
+        this.getCommentByPostId = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            try {
+                let id = req.params.id;
+                const comments = yield comment_1.default.find({ postId: id }).populate('userId');
+                res.status(200).json(comments);
+            }
+            catch (error) {
+                res.status(500).json(error);
+            }
+        });
+        this.getComment = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            try {
+                // let id = req.params.id;
+                const comments = yield comment_1.default.find();
+                res.status(200).json(comments);
+            }
+            catch (error) {
+                res.status(500).json(error);
+            }
+        });
         this.addComment = (req, res) => __awaiter(this, void 0, void 0, function* () {
             try {
                 let newComment = req.body;

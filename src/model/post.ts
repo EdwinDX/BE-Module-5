@@ -9,6 +9,7 @@ const postSchema = new Schema({
     image: 
         {
             type: String,
+            default: 'https://res.cloudinary.com/dnboldv5r/image/upload/v1632958083/probook/i_Ocean-Quote-Twitter-_20Header_full_ap6zgw.jpg'
         }
     ,
     video: 
@@ -20,9 +21,9 @@ const postSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    status:{
-        type: String,
-    },
+    // status:{
+    //     type: String,
+    // },
 
 }, { timestamps: true })
 
